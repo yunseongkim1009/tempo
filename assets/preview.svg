@@ -1,0 +1,167 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="TEMPO week view">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1200" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d0f15"/><stop offset="1" stop-color="#080a0e"/>
+    </linearGradient>
+    <radialGradient id="pg1" cx="0" cy="0" r="1" gradientTransform="translate(1050 40) rotate(130) scale(560)">
+      <stop stop-color="#7cf7c4" stop-opacity="0.10"/><stop offset="1" stop-color="#7cf7c4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="plogo" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c6ff3d"/><stop offset="0.5" stop-color="#7cf7c4"/><stop offset="1" stop-color="#63c7ff"/>
+    </linearGradient>
+    <linearGradient id="pfill" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#c6ff3d"/><stop offset="1" stop-color="#7cf7c4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- window -->
+  <rect x="8" y="8" width="1184" height="704" rx="20" fill="url(#pbg)"/>
+  <rect x="8" y="8" width="1184" height="704" rx="20" fill="url(#pg1)"/>
+  <rect x="8.5" y="8.5" width="1183" height="703" rx="19.5" stroke="#20242f"/>
+
+  <!-- traffic lights -->
+  <circle cx="40" cy="38" r="6" fill="#ff5f57"/><circle cx="62" cy="38" r="6" fill="#febc2e"/><circle cx="84" cy="38" r="6" fill="#28c840"/>
+  <line x1="8" y1="64" x2="1192" y2="64" stroke="#20242f"/>
+
+  <!-- ===== sidebar ===== -->
+  <line x1="248" y1="64" x2="248" y2="712" stroke="#20242f"/>
+  <!-- brand -->
+  <rect x="28" y="86" width="34" height="34" rx="10" fill="url(#plogo)"/>
+  <rect x="31" y="89" width="28" height="28" rx="8" fill="#0b0d12"/>
+  <path d="M45 96 v9 l6 3" stroke="#c6ff3d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="74" y="101" fill="#f4f5f8" font-size="15" font-weight="700" letter-spacing="2.5">TEMPO</text>
+  <text x="74" y="115" fill="#6b7280" font-size="9" font-weight="600" letter-spacing="2">KEEP RHYTHM</text>
+
+  <!-- new event -->
+  <rect x="28" y="138" width="192" height="40" rx="12" fill="#c6ff3d"/>
+  <text x="124" y="163" text-anchor="middle" fill="#0a0b0f" font-size="13.5" font-weight="600">＋  New event</text>
+  <!-- import -->
+  <rect x="28.5" y="186.5" width="191" height="34" rx="11" stroke="#2a3040"/>
+  <text x="124" y="208" text-anchor="middle" fill="#aeb4c2" font-size="12" font-weight="600">Import calendar</text>
+
+  <!-- calendars label -->
+  <text x="32" y="264" fill="#6b7280" font-size="10" font-weight="700" letter-spacing="1.5">CALENDARS</text>
+  <g font-size="12.5" fill="#aeb4c2">
+    <circle cx="40" cy="288" r="5" fill="#c6ff3d"/><text x="56" y="292">Work</text>
+    <circle cx="40" cy="316" r="5" fill="#a996ff"/><text x="56" y="320">Deep Focus</text>
+    <circle cx="40" cy="344" r="5" fill="#63c7ff"/><text x="56" y="348">Meetings</text>
+    <circle cx="40" cy="372" r="5" fill="#ff8a6b"/><text x="56" y="376">Personal</text>
+    <circle cx="40" cy="400" r="5" fill="#7cf7c4"/><text x="56" y="404">Health</text>
+    <circle cx="40" cy="428" r="5" fill="#ffcf5c"/><text x="56" y="432">Social</text>
+  </g>
+
+  <!-- stats card -->
+  <rect x="28" y="576" width="192" height="112" rx="14" fill="#111420" stroke="#20242f"/>
+  <text x="44" y="602" fill="#6b7280" font-size="10" font-weight="700" letter-spacing="1.2">THIS WEEK</text>
+  <text x="44" y="626" fill="#8b93a5" font-size="12">Committed</text>
+  <text x="204" y="626" text-anchor="end" fill="#f4f5f8" font-size="12" font-weight="600" font-family="monospace">18.5h</text>
+  <rect x="44" y="640" width="160" height="6" rx="3" fill="#14171f"/>
+  <rect x="44" y="640" width="104" height="6" rx="3" fill="url(#pfill)"/>
+  <text x="44" y="670" fill="#6b7280" font-size="10.5">filling up</text>
+
+  <!-- ===== top bar ===== -->
+  <rect x="272" y="86" width="64" height="30" rx="9" stroke="#2a3040"/>
+  <text x="304" y="105" text-anchor="middle" fill="#aeb4c2" font-size="12" font-weight="600">Today</text>
+  <text x="360" y="102" fill="#8b93a5" font-size="16">‹</text>
+  <text x="386" y="102" fill="#8b93a5" font-size="16">›</text>
+  <text x="416" y="102" fill="#f4f5f8" font-size="26" font-family="Georgia, 'Times New Roman', serif">September <tspan fill="#c6ff3d" font-style="italic">2026</tspan></text>
+
+  <!-- segmented control -->
+  <rect x="742" y="84" width="180" height="34" rx="10" fill="#111420" stroke="#20242f"/>
+  <text x="772" y="105" text-anchor="middle" fill="#6b7280" font-size="12" font-weight="600">Day</text>
+  <rect x="800" y="88" width="52" height="26" rx="7" fill="#161a26"/>
+  <text x="826" y="105" text-anchor="middle" fill="#f4f5f8" font-size="12" font-weight="600">Week</text>
+  <text x="892" y="105" text-anchor="middle" fill="#6b7280" font-size="12" font-weight="600">3-Day</text>
+  <!-- search -->
+  <rect x="936" y="84" width="228" height="34" rx="10" stroke="#2a3040"/>
+  <circle cx="956" cy="101" r="5.5" stroke="#6b7280" stroke-width="1.6" fill="none"/><line x1="960" y1="105" x2="964" y2="109" stroke="#6b7280" stroke-width="1.6"/>
+  <text x="974" y="105" fill="#6b7280" font-size="12">Quick add or search…</text>
+  <rect x="1120" y="92" width="34" height="18" rx="5" fill="#14171f"/><text x="1137" y="105" text-anchor="middle" fill="#8b93a5" font-size="10.5" font-family="monospace">⌘K</text>
+
+  <!-- ===== day headers ===== -->
+  <line x1="272" y1="134" x2="1164" y2="134" stroke="#20242f"/>
+  <line x1="272" y1="182" x2="1164" y2="182" stroke="#20242f"/>
+  <g font-size="9.5" font-weight="600" letter-spacing="0.6" text-anchor="middle">
+    <g fill="#6b7280">
+      <text x="330" y="152">SUN</text><text x="454" y="152">MON</text><text x="578" y="152">TUE</text><text x="702" y="152">WED</text>
+      <text x="950" y="152">FRI</text><text x="1074" y="152">SAT</text>
+    </g>
+    <text x="826" y="152" fill="#c6ff3d">THU</text>
+  </g>
+  <g font-size="17" font-weight="600" text-anchor="middle" fill="#f4f5f8">
+    <text x="330" y="174">13</text><text x="454" y="174">14</text><text x="578" y="174">15</text><text x="702" y="174">16</text>
+    <text x="950" y="174">18</text><text x="1074" y="174">19</text>
+  </g>
+  <!-- today pill -->
+  <rect x="808" y="160" width="36" height="24" rx="8" fill="#c6ff3d"/>
+  <text x="826" y="177" text-anchor="middle" fill="#0a0b0f" font-size="15" font-weight="700">17</text>
+
+  <!-- hour grid -->
+  <g stroke="#20242f">
+    <line x1="272" y1="230" x2="1164" y2="230"/><line x1="272" y1="288" x2="1164" y2="288"/>
+    <line x1="272" y1="346" x2="1164" y2="346"/><line x1="272" y1="404" x2="1164" y2="404"/>
+    <line x1="272" y1="462" x2="1164" y2="462"/><line x1="272" y1="520" x2="1164" y2="520"/>
+    <line x1="272" y1="578" x2="1164" y2="578"/><line x1="272" y1="636" x2="1164" y2="636"/>
+  </g>
+  <!-- column separators -->
+  <g stroke="#20242f" stroke-opacity="0.7">
+    <line x1="392" y1="182" x2="392" y2="700"/><line x1="516" y1="182" x2="516" y2="700"/>
+    <line x1="640" y1="182" x2="640" y2="700"/><line x1="764" y1="182" x2="764" y2="700"/>
+    <line x1="888" y1="182" x2="888" y2="700"/><line x1="1012" y1="182" x2="1012" y2="700"/>
+  </g>
+  <!-- hour labels -->
+  <g fill="#454b58" font-size="10" font-family="monospace" text-anchor="end">
+    <text x="262" y="234">9 AM</text><text x="262" y="350">11 AM</text><text x="262" y="466">1 PM</text><text x="262" y="582">3 PM</text>
+  </g>
+
+  <!-- ===== events ===== -->
+  <!-- helper look: rounded rect + spine + title + time -->
+  <!-- MON focus -->
+  <g>
+    <rect x="400" y="234" width="108" height="104" rx="9" fill="#a996ff" fill-opacity="0.18" stroke="#a996ff" stroke-opacity="0.5"/>
+    <rect x="400" y="234" width="4" height="104" rx="2" fill="#a996ff"/>
+    <text x="414" y="256" fill="#f4f5f8" font-size="11.5" font-weight="600">Deep work</text>
+    <text x="414" y="271" fill="#a996ff" font-size="9.5" font-family="monospace">9–11a</text>
+  </g>
+  <!-- TUE meeting -->
+  <g>
+    <rect x="524" y="292" width="108" height="62" rx="9" fill="#63c7ff" fill-opacity="0.18" stroke="#63c7ff" stroke-opacity="0.5"/>
+    <rect x="524" y="292" width="4" height="62" rx="2" fill="#63c7ff"/>
+    <text x="538" y="314" fill="#f4f5f8" font-size="11.5" font-weight="600">1:1 · Marco</text>
+    <text x="538" y="329" fill="#63c7ff" font-size="9.5" font-family="monospace">11–12p</text>
+  </g>
+  <!-- THU review (today) -->
+  <g>
+    <rect x="772" y="350" width="108" height="80" rx="9" fill="#c6ff3d" fill-opacity="0.18" stroke="#c6ff3d" stroke-opacity="0.55"/>
+    <rect x="772" y="350" width="4" height="80" rx="2" fill="#c6ff3d"/>
+    <text x="786" y="372" fill="#f4f5f8" font-size="11.5" font-weight="600">Design review</text>
+    <text x="786" y="387" fill="#c6ff3d" font-size="9.5" font-family="monospace">12–1:30p</text>
+  </g>
+  <!-- WED health -->
+  <g>
+    <rect x="648" y="238" width="108" height="52" rx="9" fill="#7cf7c4" fill-opacity="0.18" stroke="#7cf7c4" stroke-opacity="0.5"/>
+    <rect x="648" y="238" width="4" height="52" rx="2" fill="#7cf7c4"/>
+    <text x="662" y="260" fill="#f4f5f8" font-size="11.5" font-weight="600">Gym</text>
+    <text x="662" y="275" fill="#7cf7c4" font-size="9.5" font-family="monospace">9–10a</text>
+  </g>
+  <!-- FRI social -->
+  <g>
+    <rect x="896" y="404" width="108" height="70" rx="9" fill="#ffcf5c" fill-opacity="0.16" stroke="#ffcf5c" stroke-opacity="0.5"/>
+    <rect x="896" y="404" width="4" height="70" rx="2" fill="#ffcf5c"/>
+    <text x="910" y="426" fill="#f4f5f8" font-size="11.5" font-weight="600">Lunch · Dana</text>
+    <text x="910" y="441" fill="#ffcf5c" font-size="9.5" font-family="monospace">1–2p</text>
+  </g>
+  <!-- SUN personal -->
+  <g>
+    <rect x="276" y="520" width="108" height="58" rx="9" fill="#ff8a6b" fill-opacity="0.16" stroke="#ff8a6b" stroke-opacity="0.5"/>
+    <rect x="276" y="520" width="4" height="58" rx="2" fill="#ff8a6b"/>
+    <text x="290" y="542" fill="#f4f5f8" font-size="11.5" font-weight="600">Dinner</text>
+    <text x="290" y="557" fill="#ff8a6b" font-size="9.5" font-family="monospace">6–7p</text>
+  </g>
+
+  <!-- now line on THU -->
+  <line x1="764" y1="392" x2="888" y2="392" stroke="#ff8a6b" stroke-width="2"/>
+  <circle cx="764" cy="392" r="4.5" fill="#ff8a6b"/>
+  <rect x="716" y="383" width="44" height="17" rx="5" fill="#0d0f15"/>
+  <text x="738" y="395" text-anchor="middle" fill="#ff8a6b" font-size="9.5" font-weight="600" font-family="monospace">1:04p</text>
+</svg>
