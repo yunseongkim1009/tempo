@@ -9,6 +9,10 @@
 <p><em>Type it. Drag it. Done.</em> No sign-up, no backend, no bloat — one HTML file that just works.</p>
 
 <p>
+  <a href="https://tempo-beta-sooty.vercel.app/"><img alt="Live demo" src="https://img.shields.io/badge/▶_live_demo-tempo--beta-0d0f15?style=for-the-badge&labelColor=c6ff3d" /></a>
+</p>
+
+<p>
   <img alt="Single file" src="https://img.shields.io/badge/single--file-1%20HTML-c6ff3d?style=for-the-badge&labelColor=0d0f15" />
   <img alt="No dependencies" src="https://img.shields.io/badge/dependencies-0-7cf7c4?style=for-the-badge&labelColor=0d0f15" />
   <img alt="Works offline" src="https://img.shields.io/badge/works-offline-63c7ff?style=for-the-badge&labelColor=0d0f15" />
@@ -45,6 +49,12 @@ It's built for the way you actually think about time: fast, in plain language, a
 | 🗓️ **Day / Week / 3-Day** | Plus a mini-month navigator with busy-day dots. |
 | 💾 **Yours, always** | Every change auto-saves to your browser. No account, no cloud, no tracking. |
 | ♿ **Accessible by design** | Visible keyboard focus, ARIA-labeled controls, and full `prefers-reduced-motion` support. |
+
+---
+
+## ✦ Try it now
+
+**▶ Live demo: [tempo-beta-sooty.vercel.app](https://tempo-beta-sooty.vercel.app/)** — open it, press `⌘K`, and type an event. It starts empty; it's yours to fill.
 
 ---
 
