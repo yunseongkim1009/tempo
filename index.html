@@ -92,6 +92,68 @@ input{font-family:inherit}
 .newbtn:active{transform:translateY(0) scale(.98)}
 .newbtn kbd{background:rgba(10,11,15,.25);border-radius:5px;padding:1px 5px;font-size:11px;font-family:'JetBrains Mono',monospace}
 
+.importbtn{
+  display:flex;align-items:center;gap:8px;justify-content:center;
+  border:1px solid var(--line-2);color:var(--ink-2);font-weight:600;font-size:12.5px;
+  padding:9px;border-radius:11px;width:100%;margin-top:-8px;transition:.15s;
+}
+.importbtn:hover{border-color:var(--ink-4);color:var(--ink);background:var(--panel)}
+
+/* import modal */
+.import{
+  width:min(560px,94vw);background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line-2);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;
+  transform:scale(.96);opacity:0;transition:.26s var(--ease-out);
+}
+.scrim.show .import{transform:none;opacity:1}
+.im-head{display:flex;align-items:flex-start;gap:12px;padding:20px 22px 16px}
+.im-title{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.im-sub{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.im-sub code,.im-tip code,.g-help code{font-family:'JetBrains Mono',monospace;font-size:11.5px;background:var(--bg-2);padding:1px 5px;border-radius:5px;color:var(--accent-2)}
+.im-x{margin-left:auto;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--ink-3);flex:none;transition:.15s}
+.im-x:hover{background:var(--panel-2);color:var(--ink)}
+.im-tabs{display:flex;gap:2px;padding:0 22px;border-bottom:1px solid var(--line)}
+.im-tabs button{padding:9px 13px;font-size:12.5px;font-weight:600;color:var(--ink-3);border-bottom:2px solid transparent;margin-bottom:-1px;transition:.15s}
+.im-tabs button.on{color:var(--accent);border-bottom-color:var(--accent)}
+.im-tabs button:hover:not(.on){color:var(--ink-2)}
+.im-body{padding:18px 22px 22px}
+.im-target{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:12.5px;color:var(--ink-3)}
+.im-cats{display:flex;gap:6px}
+.im-cats .c{width:22px;height:22px;border-radius:7px;cursor:pointer;position:relative;transition:transform .12s}
+.im-cats .c:hover{transform:scale(1.12)}
+.im-cats .c.on::after{content:"";position:absolute;inset:-3px;border-radius:10px;border:2px solid var(--ink)}
+.dropzone{
+  display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;
+  border:1.5px dashed var(--line-2);border-radius:14px;padding:30px 20px;cursor:pointer;transition:.15s;
+}
+.dropzone:hover,.dropzone.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.dz-t{font-size:14px;margin-top:4px}
+.dz-d{font-size:12px;color:var(--ink-3)}
+.im-tip{font-size:11.5px;color:var(--ink-3);line-height:1.65;margin-top:14px;background:var(--bg-1);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+.im-tip b{color:var(--ink-2)}.im-tip em{color:var(--ink);font-style:normal;font-weight:600}
+.im-field{display:flex;gap:8px}
+.im-field input{
+  flex:1;background:var(--bg-2);border:1px solid var(--line-2);border-radius:10px;padding:10px 12px;
+  color:var(--ink);font-size:13px;outline:none;transition:.15s;min-width:0;
+}
+.im-field input:focus{border-color:var(--accent)}
+.im-field .btn{height:auto;padding:0 16px;flex:none}
+.g-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.g-badge{width:34px;height:34px;border-radius:9px;background:#fff;color:#4285F4;font-weight:800;font-size:18px;display:grid;place-items:center;flex:none;font-family:'Segoe UI',Arial,sans-serif}
+.g-t{font-size:14px;font-weight:600}
+.g-d{font-size:12px;color:var(--ink-3);line-height:1.55;margin-top:2px}
+.g-help{margin-top:14px;font-size:12px;color:var(--ink-3)}
+.g-help summary{cursor:pointer;color:var(--ink-2);font-weight:600;user-select:none}
+.g-help summary:hover{color:var(--ink)}
+.g-help ol{margin:10px 0 0 18px;line-height:1.9}
+.g-help b{color:var(--ink-2)}
+.im-status{margin-top:16px;font-size:12.5px;padding:11px 13px;border-radius:11px;display:flex;align-items:center;gap:9px;line-height:1.5}
+.im-status.work{background:color-mix(in srgb,var(--sky) 12%,transparent);border:1px solid color-mix(in srgb,var(--sky) 35%,transparent);color:var(--sky)}
+.im-status.ok{background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);color:var(--accent)}
+.im-status.err{background:color-mix(in srgb,var(--coral) 12%,transparent);border:1px solid color-mix(in srgb,var(--coral) 35%,transparent);color:var(--coral)}
+.im-spin{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 /* mini month */
 .mini{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
 .mini-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -397,6 +459,10 @@ input{font-family:inherit}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       New event <kbd>N</kbd>
     </button>
+    <button class="importbtn" id="importBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Import calendar
+    </button>
 
     <div class="mini">
       <div class="mini-head">
@@ -519,6 +585,84 @@ input{font-family:inherit}
       <div class="ed-spring"></div>
       <button class="btn ghost" id="edCancel">Cancel</button>
       <button class="btn prim" id="edSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= IMPORT MODAL ================= -->
+<div class="scrim mod" id="imScrim">
+  <div class="import" role="dialog" aria-modal="true" aria-label="Import calendar">
+    <div class="im-head">
+      <div>
+        <div class="im-title">Import your calendar</div>
+        <div class="im-sub">Bring in events from Google, Apple, Outlook — or any <code>.ics</code> feed.</div>
+      </div>
+      <button class="im-x" id="imClose" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+
+    <div class="im-tabs" id="imTabs">
+      <button data-t="file" class="on">Upload file</button>
+      <button data-t="url">iCal URL</button>
+      <button data-t="google">Google (live)</button>
+    </div>
+
+    <div class="im-body">
+      <!-- shared: target color -->
+      <div class="im-target">
+        <span>Add imported events to</span>
+        <div class="im-cats" id="imCats"></div>
+      </div>
+
+      <!-- FILE -->
+      <div class="im-pane" data-p="file">
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="icsFile" accept=".ics,text/calendar" multiple hidden />
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="dz-t">Drop an <b>.ics</b> file here</div>
+          <div class="dz-d">or click to browse · you can select several</div>
+        </label>
+        <div class="im-tip">
+          <b>Where do I get one?</b> Google Calendar → Settings → <em>Import &amp; export</em> → Export (a <code>.zip</code> with <code>.ics</code> files). Apple Calendar → File → Export. Outlook → Save Calendar.
+        </div>
+      </div>
+
+      <!-- URL -->
+      <div class="im-pane" data-p="url" hidden>
+        <div class="im-field">
+          <input id="icsUrl" placeholder="https://calendar.google.com/calendar/ical/.../basic.ics" spellcheck="false" autocomplete="off" />
+          <button class="btn prim" id="icsUrlGo">Fetch</button>
+        </div>
+        <div class="im-tip">
+          <b>Google:</b> Settings → <em>Settings for my calendars</em> → pick a calendar → <em>Integrate calendar</em> → copy the <b>Secret address in iCal format</b>. Feeds are fetched through a public proxy if the server blocks direct access.
+        </div>
+      </div>
+
+      <!-- GOOGLE LIVE -->
+      <div class="im-pane" data-p="google" hidden>
+        <div class="g-row">
+          <div class="g-badge">G</div>
+          <div>
+            <div class="g-t">Connect Google Calendar</div>
+            <div class="g-d">Read-only. Pulls your next ~4 months from your primary calendar. Nothing is stored anywhere but this browser.</div>
+          </div>
+        </div>
+        <div class="im-field" id="gidField">
+          <input id="gClientId" placeholder="Your Google OAuth Client ID (…apps.googleusercontent.com)" spellcheck="false" autocomplete="off" />
+          <button class="btn prim" id="gConnect">Connect</button>
+        </div>
+        <details class="g-help">
+          <summary>How to get a Client ID (2 min, free)</summary>
+          <ol>
+            <li>Open <b>console.cloud.google.com</b> → create a project.</li>
+            <li>APIs &amp; Services → <b>Enable APIs</b> → enable <b>Google Calendar API</b>.</li>
+            <li>Credentials → <b>Create credentials</b> → <b>OAuth client ID</b> → <b>Web application</b>.</li>
+            <li>Under <b>Authorized JavaScript origins</b> add this page's origin: <code id="gOrigin">—</code></li>
+            <li>Copy the Client ID, paste it above, hit Connect.</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="im-status" id="imStatus" hidden></div>
     </div>
   </div>
 </div>
@@ -1082,6 +1226,240 @@ function render(){
   $('#empty').classList.toggle('show', store.events.length===0);
 }
 
+/* ================================================================
+   IMPORT — .ics files, iCal URLs, and live Google Calendar
+   ================================================================ */
+let importCat = 'meet';
+
+function openImport(){
+  showScrim('#imScrim');
+  const co=$('#gOrigin'); if(co) co.textContent=location.origin;
+  const saved=localStorage.getItem('tempo.gcal.clientId'); if(saved) $('#gClientId').value=saved;
+  setImStatus(null);
+  renderImCats();
+}
+function renderImCats(){
+  const w=$('#imCats'); w.innerHTML='';
+  CATS.forEach(c=>{
+    const b=document.createElement('div');
+    b.className='c'+(c.id===importCat?' on':''); b.style.background=c.color; b.title=c.name;
+    b.onclick=()=>{ importCat=c.id; renderImCats(); };
+    w.appendChild(b);
+  });
+}
+function setImStatus(kind,html){
+  const s=$('#imStatus');
+  if(!kind){ s.hidden=true; s.innerHTML=''; return; }
+  s.hidden=false; s.className='im-status '+kind;
+  s.innerHTML=(kind==='work'?'<span class="im-spin"></span>':'')+html;
+}
+function switchImTab(t){
+  $$('#imTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  $$('.im-pane').forEach(p=>p.hidden = p.dataset.p!==t);
+  setImStatus(null);
+}
+
+/* ---------- ICS parsing ---------- */
+function parseICS(text){
+  const unfolded = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').replace(/\n[ \t]/g,'');
+  const lines = unfolded.split('\n');
+  const out=[]; let cur=null;
+  for(const line of lines){
+    if(line==='BEGIN:VEVENT'){ cur={}; continue; }
+    if(line==='END:VEVENT'){ if(cur&&cur.start) out.push(cur); cur=null; continue; }
+    if(!cur) continue;
+    const ci=line.indexOf(':'); if(ci<0) continue;
+    const rawKey=line.slice(0,ci); let val=line.slice(ci+1);
+    const [name,...ps]=rawKey.split(';');
+    const p={}; ps.forEach(pr=>{ const eq=pr.indexOf('='); if(eq>0)p[pr.slice(0,eq)]=pr.slice(eq+1); });
+    val=val.replace(/\\n/gi,'\n').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\');
+    if(name==='DTSTART') cur.start=parseICSDate(val,p);
+    else if(name==='DTEND') cur.end=parseICSDate(val,p);
+    else if(name==='SUMMARY') cur.summary=val;
+    else if(name==='DESCRIPTION') cur.desc=val;
+    else if(name==='LOCATION') cur.loc=val;
+    else if(name==='UID') cur.uid=val;
+    else if(name==='RRULE') cur.rrule=val;
+  }
+  return out;
+}
+function parseICSDate(val,p){
+  const allDay = (p&&p.VALUE==='DATE') || /^\d{8}$/.test(val.trim());
+  const m=val.trim().match(/^(\d{4})(\d{2})(\d{2})(?:T(\d{2})(\d{2})(\d{2})(Z)?)?/);
+  if(!m) return null;
+  const [_,Y,Mo,D,h,mi,s,z]=m;
+  const date = z ? new Date(Date.UTC(+Y,+Mo-1,+D,+h||0,+mi||0,+s||0))
+                 : new Date(+Y,+Mo-1,+D,h?+h:0,mi?+mi:0,s?+s:0);
+  return {date, allDay};
+}
+/* bounded recurrence expansion: DAILY/WEEKLY/MONTHLY/YEARLY + INTERVAL/COUNT/UNTIL/BYDAY */
+function expandRRULE(ev){
+  const base=ev.start.date;
+  if(!ev.rrule) return [base];
+  const r={}; ev.rrule.split(';').forEach(kv=>{ const i=kv.indexOf('='); if(i>0)r[kv.slice(0,i)]=kv.slice(i+1); });
+  const freq=r.FREQ, interval=Math.max(1,+(r.INTERVAL||1));
+  const count=r.COUNT?+r.COUNT:null;
+  const until=r.UNTIL?parseICSDate(r.UNTIL,{}).date:null;
+  const horizon=addDays(startOfDay(new Date()),365);
+  const floor=addDays(startOfDay(new Date()),-45);      // ignore old occurrences
+  const end=until && until<horizon ? until : horizon;
+  const DAYMAP={SU:0,MO:1,TU:2,WE:3,TH:4,FR:5,SA:6};
+  const out=[]; let guard=0;
+  const push=d=>{ if(d>=floor) out.push(new Date(d)); };
+  if(freq==='WEEKLY' && r.BYDAY){
+    const wanted=r.BYDAY.split(',').map(x=>DAYMAP[x.slice(-2)]).filter(x=>x!=null);
+    let weekStart=startOfWeek(base); let wk=0;
+    while(guard++<3000 && weekStart<=end){
+      if(wk%interval===0){
+        wanted.forEach(dow=>{
+          const d=addDays(weekStart,dow);
+          d.setHours(base.getHours(),base.getMinutes(),0,0);
+          if(d>=base && d<=end) push(d);
+        });
+      }
+      weekStart=addDays(weekStart,7); wk++;
+      if(count && out.length>=count) break;
+    }
+  } else {
+    let d=new Date(base);
+    while(guard++<3000 && d<=end){
+      push(d);
+      if(count && out.length>=count) break;
+      if(freq==='DAILY') d=addDays(d,interval);
+      else if(freq==='WEEKLY') d=addDays(d,7*interval);
+      else if(freq==='MONTHLY'){ const n=new Date(d); n.setMonth(n.getMonth()+interval); d=n; }
+      else if(freq==='YEARLY'){ const n=new Date(d); n.setFullYear(n.getFullYear()+interval); d=n; }
+      else break;
+    }
+  }
+  if(count) return out.slice(0,count);
+  return out;
+}
+/* map parsed VEVENTs → TEMPO events */
+function icsToEvents(parsed,cat){
+  const evs=[];
+  parsed.forEach(ev=>{
+    const durMs = ev.end ? Math.max(0, ev.end.date - ev.start.date)
+                         : (ev.start.allDay ? DAY : 60*60000);
+    expandRRULE(ev).forEach(sd=>{
+      const ed=new Date(sd.getTime()+durMs);
+      let startMin, endMin;
+      if(ev.start.allDay){ startMin=0; endMin=40; }
+      else{
+        startMin=sd.getHours()*60+sd.getMinutes();
+        if(sameDay(sd,ed)) endMin=ed.getHours()*60+ed.getMinutes();
+        else endMin=1440;
+        if(endMin<=startMin) endMin=Math.min(1440,startMin+Math.max(15,Math.round(durMs/60000)));
+      }
+      const note=[ev.loc?('📍 '+ev.loc):'',ev.desc||''].filter(Boolean).join('\n').slice(0,600);
+      evs.push({
+        id:uid(), dateKey:keyOf(sd), start:startMin, end:endMin,
+        title:(ev.summary||'(no title)').slice(0,120), cat,
+        note: ev.start.allDay ? ('All-day'+(note?'\n'+note:'')) : note,
+        src: (ev.uid||('n'+Math.random()))+'@'+keyOf(sd)
+      });
+    });
+  });
+  return evs;
+}
+/* merge into store, de-duplicating by src (idempotent re-import) */
+function ingest(newEvents){
+  if(!newEvents.length) return 0;
+  const incoming=new Set(newEvents.map(e=>e.src));
+  store.events=store.events.filter(e=>!(e.src && incoming.has(e.src)));
+  store.events.push(...newEvents);
+  store.save(); render();
+  return newEvents.length;
+}
+function importICSText(text,label){
+  let parsed; try{ parsed=parseICS(text); }catch(e){ setImStatus('err','Could not read that file — is it a valid .ics?'); return; }
+  if(!parsed.length){ setImStatus('err','No events found in '+ (label||'that file') +'.'); return; }
+  const evs=icsToEvents(parsed,importCat);
+  const n=ingest(evs);
+  setImStatus('ok',`Imported <b>${n}</b> event${n!==1?'s':''}${label?' from '+escapeHtml(label):''}. ✓`);
+  toast(`Imported ${n} event${n!==1?'s':''}`);
+}
+function readICSFiles(files){
+  [...files].forEach(f=>{
+    const rd=new FileReader();
+    rd.onload=()=>importICSText(rd.result, f.name);
+    rd.onerror=()=>setImStatus('err','Failed to read '+f.name);
+    rd.readAsText(f);
+  });
+}
+/* fetch an ics URL, falling back to CORS proxies */
+async function importICSUrl(url){
+  url=url.trim(); if(!url){ setImStatus('err','Paste an iCal URL first.'); return; }
+  if(url.startsWith('webcal://')) url='https://'+url.slice(9);
+  setImStatus('work','Fetching feed…');
+  const tries=[
+    url,
+    'https://corsproxy.io/?url='+encodeURIComponent(url),
+    'https://api.allorigins.win/raw?url='+encodeURIComponent(url),
+  ];
+  for(const u of tries){
+    try{
+      const r=await fetch(u); if(!r.ok) continue;
+      const t=await r.text();
+      if(t.includes('BEGIN:VCALENDAR')){ importICSText(t,'the feed'); return; }
+    }catch(e){}
+  }
+  setImStatus('err','Couldn’t fetch that feed (the calendar server may block browsers). Try exporting an <b>.ics</b> file and uploading it instead.');
+}
+
+/* ---------- live Google Calendar ---------- */
+function loadScript(src){
+  return new Promise((res,rej)=>{
+    if(document.querySelector(`script[src="${src}"]`)) return res();
+    const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s);
+  });
+}
+async function connectGoogle(){
+  const cid=$('#gClientId').value.trim();
+  if(!cid){ setImStatus('err','Paste your Google OAuth Client ID first.'); return; }
+  localStorage.setItem('tempo.gcal.clientId',cid);
+  setImStatus('work','Opening Google sign-in…');
+  try{ await loadScript('https://accounts.google.com/gsi/client'); }
+  catch(e){ setImStatus('err','Could not load Google’s sign-in library (check your connection).'); return; }
+  try{
+    const tc=google.accounts.oauth2.initTokenClient({
+      client_id:cid,
+      scope:'https://www.googleapis.com/auth/calendar.readonly',
+      callback:(resp)=>{
+        if(resp&&resp.access_token) fetchGoogle(resp.access_token);
+        else setImStatus('err','Sign-in was cancelled or failed.');
+      },
+    });
+    tc.requestAccessToken();
+  }catch(e){ setImStatus('err','Google init failed — check the Client ID and that this origin is authorized.'); }
+}
+async function fetchGoogle(token){
+  setImStatus('work','Reading your Google Calendar…');
+  const timeMin=addDays(new Date(),-30).toISOString();
+  const timeMax=addDays(new Date(),120).toISOString();
+  const url=`https://www.googleapis.com/calendar/v3/calendars/primary/events?singleEvents=true&orderBy=startTime&maxResults=250&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}`;
+  try{
+    const r=await fetch(url,{headers:{Authorization:'Bearer '+token}});
+    if(!r.ok){ setImStatus('err','Google API error '+r.status+' (is the Calendar API enabled?).'); return; }
+    const data=await r.json();
+    const evs=[];
+    (data.items||[]).forEach(it=>{
+      if(it.status==='cancelled'||!it.start) return;
+      const allDay=!!it.start.date;
+      const sd=new Date(it.start.dateTime||it.start.date+'T00:00:00');
+      const ed=new Date((it.end&&(it.end.dateTime||it.end.date+'T00:00:00'))||sd);
+      let startMin,endMin;
+      if(allDay){ startMin=0; endMin=40; }
+      else{ startMin=sd.getHours()*60+sd.getMinutes(); endMin=sameDay(sd,ed)?ed.getHours()*60+ed.getMinutes():1440; if(endMin<=startMin)endMin=Math.min(1440,startMin+60); }
+      const note=[it.location?('📍 '+it.location):'',it.description||''].filter(Boolean).join('\n').slice(0,600);
+      evs.push({id:uid(),dateKey:keyOf(sd),start:startMin,end:endMin,title:(it.summary||'(no title)').slice(0,120),cat:importCat,note:allDay?('All-day'+(note?'\n'+note:'')):note,src:(it.id||uid())+'@'+keyOf(sd)});
+    });
+    const n=ingest(evs);
+    setImStatus('ok',`Synced <b>${n}</b> event${n!==1?'s':''} from Google. ✓`);
+    toast(`Synced ${n} events from Google`,'View',()=>hideScrim('#imScrim'));
+  }catch(e){ setImStatus('err','Network error talking to Google.'); }
+}
+
 /* ================= WIRE UP ================= */
 function init(){
   store.load(); syncSeg(); render();
@@ -1093,6 +1471,20 @@ function init(){
   $('#newBtn').onclick=()=>openPal();
   $('#cmdBtn').onclick=()=>openPal();
   $('#emptyBtn').onclick=()=>openPal();
+
+  // import modal
+  $('#importBtn').onclick=openImport;
+  $('#imClose').onclick=()=>hideScrim('#imScrim');
+  $$('#imTabs button').forEach(b=>b.onclick=()=>switchImTab(b.dataset.t));
+  const dz=$('#dropzone');
+  $('#icsFile').onchange=e=>{ if(e.target.files.length) readICSFiles(e.target.files); };
+  ['dragover','dragenter'].forEach(ev=>dz.addEventListener(ev,e=>{ e.preventDefault(); dz.classList.add('over'); }));
+  ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{ e.preventDefault(); dz.classList.remove('over'); }));
+  dz.addEventListener('drop',e=>{ const f=e.dataTransfer.files; if(f&&f.length) readICSFiles(f); });
+  $('#icsUrlGo').onclick=()=>importICSUrl($('#icsUrl').value);
+  $('#icsUrl').addEventListener('keydown',e=>{ if(e.key==='Enter') importICSUrl($('#icsUrl').value); });
+  $('#gConnect').onclick=connectGoogle;
+  $('#gClientId').addEventListener('keydown',e=>{ if(e.key==='Enter') connectGoogle(); });
   $('#miniPrev').onclick=()=>{ store.miniMonth=new Date(store.miniMonth.getFullYear(),store.miniMonth.getMonth()-1,1); renderMini(); };
   $('#miniNext').onclick=()=>{ store.miniMonth=new Date(store.miniMonth.getFullYear(),store.miniMonth.getMonth()+1,1); renderMini(); };
 
@@ -1125,6 +1517,10 @@ function onKey(e){
   if($('#edScrim').classList.contains('show')){
     if(e.key==='Escape'){ if(editingNew&&!$('#edTitle').value.trim())deleteSilent(); hideScrim('#edScrim'); editing=null; }
     else if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){ commitEditor(); }
+    return;
+  }
+  if($('#imScrim').classList.contains('show')){
+    if(e.key==='Escape') hideScrim('#imScrim');
     return;
   }
   if(typing)return;

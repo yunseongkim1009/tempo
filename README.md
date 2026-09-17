@@ -40,6 +40,7 @@ It's built for the way you actually think about time: fast, in plain language, a
 | 🖱️ **Drag to schedule** | Click-drag any empty slot to block time. Drag events to move them, grab their edges to resize — all snapping to clean 15-minute steps. |
 | 🧠 **Smart overlap layout** | Overlapping events auto-split into side-by-side columns, just like the calendars you pay for. |
 | 📊 **Live week insights** | Committed hours, busiest day, and a load meter that warns you when the week is *"packed — protect focus time."* |
+| 📥 **Import your calendar** | Drop in an **`.ics`** file, paste an **iCal URL**, or **connect Google Calendar live** (read-only OAuth). Handles recurring events, all-day events, locations and notes — and re-imports are de-duplicated. |
 | 🌈 **Six color calendars** | Work, Deep Focus, Meetings, Personal, Health, Social — toggle any on or off in a click. |
 | 🗓️ **Day / Week / 3-Day** | Plus a mini-month navigator with busy-day dots. |
 | 💾 **Yours, always** | Every change auto-saves to your browser. No account, no cloud, no tracking. |
@@ -77,6 +78,16 @@ TEMPO understands how people actually write:
 
 ---
 
+## ✦ Bring your existing calendar
+
+Click **Import calendar** in the sidebar. Three ways in:
+
+- **Upload `.ics`** — export from Google (*Settings → Import & export*), Apple (*File → Export*) or Outlook and drop the file in. Multiple files at once are fine.
+- **iCal URL** — paste a calendar's *secret address in iCal format*; feeds are fetched through a public CORS proxy when the server blocks direct browser access.
+- **Google Calendar (live)** — a real read-only OAuth connection. Because TEMPO ships as a static file, you supply your own free Google **OAuth Client ID** (the modal walks you through it in ~2 minutes). Your data only ever lives in your browser.
+
+Recurring events, all-day events, locations and descriptions all come across, and importing the same source twice **won't create duplicates**.
+
 ## ✦ Keyboard shortcuts
 
 | Key | Action | | Key | Action |
@@ -109,7 +120,8 @@ No backend to deploy. No API keys. Drop it on any static host and it's live.
 - [ ] Month view
 - [ ] Recurring events
 - [ ] Drag events across days
-- [ ] `.ics` import / export
+- [x] `.ics` import + Google Calendar connect
+- [ ] `.ics` export
 - [ ] Multi-week planning view
 
 Ideas and PRs welcome.
