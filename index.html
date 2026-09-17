@@ -140,6 +140,10 @@ input{font-family:inherit}
 .im-field .btn{height:auto;padding:0 16px;flex:none}
 .g-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
 .g-badge{width:34px;height:34px;border-radius:9px;background:#fff;color:#4285F4;font-weight:800;font-size:18px;display:grid;place-items:center;flex:none;font-family:'Segoe UI',Arial,sans-serif}
+.gsignin{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;background:#fff;color:#1f1f1f;font-weight:600;font-size:14px;padding:12px;border-radius:11px;transition:.15s;box-shadow:0 6px 18px -8px rgba(0,0,0,.5)}
+.gsignin:hover{filter:brightness(.97);transform:translateY(-1px)}
+.gsignin:active{transform:translateY(0)}
+.gsignin svg{width:18px;height:18px;flex:none}
 .g-t{font-size:14px;font-weight:600}
 .g-d{font-size:12px;color:var(--ink-3);line-height:1.55;margin-top:2px}
 .g-help{margin-top:14px;font-size:12px;color:var(--ink-3)}
@@ -646,11 +650,14 @@ input{font-family:inherit}
             <div class="g-d">Read-only. Pulls your next ~4 months from your primary calendar. Nothing is stored anywhere but this browser.</div>
           </div>
         </div>
-        <div class="im-field" id="gidField">
+        <button class="gsignin" id="gConnect">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 010-4.2V7.06H2.18a11 11 0 000 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+          Sign in with Google
+        </button>
+        <div class="im-field" id="gidField" style="margin-top:10px">
           <input id="gClientId" placeholder="Your Google OAuth Client ID (…apps.googleusercontent.com)" spellcheck="false" autocomplete="off" />
-          <button class="btn prim" id="gConnect">Connect</button>
         </div>
-        <details class="g-help">
+        <details class="g-help" id="gHelp">
           <summary>How to get a Client ID (2 min, free)</summary>
           <ol>
             <li>Open <b>console.cloud.google.com</b> → create a project.</li>
@@ -728,6 +735,14 @@ const store = {
   }
 };
 const uid = ()=>Math.random().toString(36).slice(2,10);
+
+/* ── Google sign-in config ───────────────────────────────────────────
+   Paste your ONE OAuth Client ID here and every visitor gets a clean
+   "Sign in with Google" button — no ID pasting required.
+   A Client ID is PUBLIC and safe to commit (it is not a secret).
+   Leave it blank to keep the "paste your own Client ID" fallback.        */
+const GOOGLE_CLIENT_ID = ''; // e.g. '1234567890-abc123.apps.googleusercontent.com'
+const hasBuiltInGoogle = /apps\.googleusercontent\.com/.test(GOOGLE_CLIENT_ID);
 const SVG = {
   cal:`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
   clock:`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
@@ -1234,7 +1249,10 @@ let importCat = 'meet';
 function openImport(){
   showScrim('#imScrim');
   const co=$('#gOrigin'); if(co) co.textContent=location.origin;
-  const saved=localStorage.getItem('tempo.gcal.clientId'); if(saved) $('#gClientId').value=saved;
+  // built-in Client ID → clean sign-in only; otherwise show the paste fallback
+  $('#gidField').hidden = hasBuiltInGoogle;
+  $('#gHelp').hidden = hasBuiltInGoogle;
+  if(!hasBuiltInGoogle){ const saved=localStorage.getItem('tempo.gcal.clientId'); if(saved) $('#gClientId').value=saved; }
   setImStatus(null);
   renderImCats();
 }
@@ -1415,9 +1433,10 @@ function loadScript(src){
   });
 }
 async function connectGoogle(){
-  const cid=$('#gClientId').value.trim();
-  if(!cid){ setImStatus('err','Paste your Google OAuth Client ID first.'); return; }
-  localStorage.setItem('tempo.gcal.clientId',cid);
+  const cid = hasBuiltInGoogle ? GOOGLE_CLIENT_ID.trim()
+            : ($('#gClientId').value.trim() || localStorage.getItem('tempo.gcal.clientId') || '');
+  if(!cid){ setImStatus('err','Paste your Google OAuth Client ID first (or set one in the code).'); return; }
+  if(!hasBuiltInGoogle) localStorage.setItem('tempo.gcal.clientId',cid);
   setImStatus('work','Opening Google sign-in…');
   try{ await loadScript('https://accounts.google.com/gsi/client'); }
   catch(e){ setImStatus('err','Could not load Google’s sign-in library (check your connection).'); return; }
